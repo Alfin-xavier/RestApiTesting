@@ -1,4 +1,4 @@
-package com.atmecs.rest.apiTesting.utility;
+package com.atmecs.apiTesting.utility;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

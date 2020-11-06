@@ -1,5 +1,6 @@
 package com.atmecs.rest.apiTesting.test;
 
-public class PutUser {
-
+public class PutUser 
+{
+	
 }

@@ -8,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.atmecs.apiTesting.constant.Constants;
-import com.atmecs.rest.apiTesting.utility.PropertyReader;
+import com.atmecs.apiTesting.utility.PropertyReader;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;

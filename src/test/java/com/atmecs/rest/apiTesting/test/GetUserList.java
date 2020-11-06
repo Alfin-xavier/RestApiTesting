@@ -5,7 +5,8 @@ import java.net.URL;
 import java.util.Properties;
 import org.testng.annotations.Test;
 import com.atmecs.apiTesting.constant.Constants;
-import com.atmecs.rest.apiTesting.utility.PropertyReader;
+import com.atmecs.apiTesting.utility.PropertyReader;
+
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
