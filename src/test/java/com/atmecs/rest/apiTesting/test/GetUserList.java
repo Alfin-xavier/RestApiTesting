@@ -3,9 +3,11 @@ package com.atmecs.rest.apiTesting.test;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
+
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.atmecs.apiTesting.constant.Constants;
-import com.atmecs.apiTesting.utility.PropertyReader;
+import com.atmecs.apiTesting.utility.PropertyFileReader;
 
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
@@ -14,7 +16,7 @@ import io.restassured.specification.RequestSpecification;
 
 public class GetUserList 
 {
-	Properties property = PropertyReader.readProperties(Constants.DATA_PROVIDER_FILE);
+	Properties property = PropertyFileReader.readProperties(Constants.DATA_PROVIDER_FILE);
 	@Test()
 	public void getUserList() throws MalformedURLException 
 	{
@@ -35,6 +37,7 @@ public class GetUserList
 		/**
 		 * Getting inputs by hard coded.
 		 */
+		
 		/*
 		 * String firstName = jsonPath.get("data.first_name"); String lastName =
 		 * jsonPath.get("data.last_name"); String email = jsonPath.get("data.email");
@@ -48,6 +51,7 @@ public class GetUserList
 		 * System.out.println("Status Code: " + statusCode);
 		 */
 		 
+		 
 		 /**
 		  * Getting inputs from properties file.
 		  */
@@ -55,16 +59,15 @@ public class GetUserList
 		String actualLastName = jsonPath.get("data.last_name"); 
 		String actualEmail = jsonPath.get("data.email");
 		
-		/*
-		 * String expectedFirstName = property.getProperty("firstname"); String
-		 * expectedLastName = property.getProperty("lastname"); String expectedEmail =
-		 * property.getProperty("email");
-		 */
-		/*
-		 * Assert.assertEquals(expectedFirstName, actualFirstName);
-		 * Assert.assertEquals(expectedLastName,actualLastName);
-		 * Assert.assertEquals(expectedEmail, actualEmail);
-		 */
+		
+		String expectedFirstName = property.getProperty("firstname");
+		String expectedLastName = property.getProperty("lastname");
+		String expectedEmail = property.getProperty("email");
+
+		Assert.assertEquals(actualFirstName, expectedFirstName);
+		Assert.assertEquals(actualLastName, expectedLastName);
+		Assert.assertEquals(actualEmail, expectedEmail);
+		 
 		
 		System.out.println("FirstName: " + actualFirstName);
 		System.out.println("LastName: " + actualLastName);

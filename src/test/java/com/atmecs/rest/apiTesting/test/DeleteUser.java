@@ -8,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.atmecs.apiTesting.constant.Constants;
-import com.atmecs.apiTesting.utility.PropertyReader;
+import com.atmecs.apiTesting.utility.PropertyFileReader;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -16,7 +16,7 @@ import io.restassured.specification.RequestSpecification;
 
 public class DeleteUser 
 {
-	Properties property = PropertyReader.readProperties(Constants.DATA_PROVIDER_FILE);
+	Properties property = PropertyFileReader.readProperties(Constants.DATA_PROVIDER_FILE);
 	
 	@Test
 	public void deleteUser() throws MalformedURLException

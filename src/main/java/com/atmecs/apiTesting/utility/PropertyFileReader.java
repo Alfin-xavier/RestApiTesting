@@ -5,7 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-public class PropertyReader 
+import com.atmecs.apiTesting.constant.Constants;
+
+public class PropertyFileReader 
 {
 	public static Properties properties;
 	
@@ -28,4 +30,6 @@ public class PropertyReader
 
 		return properties;
 		}
+	
+	
 }
