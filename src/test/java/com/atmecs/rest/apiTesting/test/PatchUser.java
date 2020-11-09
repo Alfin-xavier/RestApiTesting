@@ -16,19 +16,16 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-public class PutUser 
+public class PatchUser 
 {
 	@Test(dataProvider = "createUser", dataProviderClass = UsersDataProvider.class )
 	public void updateUser(Object requestBody) throws MalformedURLException
 	{
-		String url = "https://reqres.in/api/users";
+		String url = "https://reqres.in/api/users/2";
 
-		Map<String, Object> headers = new HashMap<>();
-		headers.put("Content-Type", "application/json");
+		RequestSpecification request = RestAssured.given();
 
-		RequestSpecification request = RestAssured.given().headers(headers);
-
-		Response response = request.when().body(requestBody.toString()).put(new URL(url)).then().extract().response();
+		Response response = request.when().body(requestBody.toString()).patch(new URL(url)).then().extract().response();
 
 		int statusCode = response.getStatusCode();
 		String responseBody = response.getBody().asString();
@@ -39,12 +36,6 @@ public class PutUser
 		Assert.assertEquals(statusCode, 200);
 
 		JsonPath jsonPath = response.jsonPath();
-
-		String name = jsonPath.getString("name");
-		System.out.println("Name:" + name);
-		
-		JSONObject jsonObject = (JSONObject) requestBody;
-		Assert.assertEquals(name, jsonObject.get("name").toString());
 
 		String updatedAt = jsonPath.getString("updatedAt");
 		System.out.println("CreatedAt:" + updatedAt);
